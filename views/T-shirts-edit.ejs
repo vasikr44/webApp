@@ -1,0 +1,65 @@
+<html>
+<head>
+    <script src="https://mysqljs.com/mysql.js">
+    </script>
+    <link rel="stylesheet" type="text/css" href="/css/T-shirts-submit.css">
+</head>
+<body>
+    <div class="login-page">
+        <div class="form login-form">
+        
+        <div id="id" style="display: none"><%=info.id%></div>
+
+        <input id="fn" type="text" name="firstname" placeholder="firstname" value="<%=info.firstname%>">
+        <input id="ln" type="text" name="lastname" placeholder="lastname" value="<%=info.lastname%>">
+        <input id="type" list="types" name="type" placeholder="type" value="<%=info.type%>">
+        <datalist id="types">
+            <option value="male">
+            <option value="female">
+        </datalist>
+        <input id="size" list="sizes" name="size" placeholder="size" value="<%=info.size%>">
+        <datalist id="sizes">
+            <option value="XS">
+            <option value="S">
+            <option value="M">
+            <option value="L">
+            <option value="XL">
+            <option value="XXL">
+            <option value="3XL">
+            <option value="4XL">
+            <option value="5XL">
+        </datalist>
+        <input id="color" type="text" name="color" placeholder="color" value="<%=info.color%>">
+        <button onclick="submit()">Submit</button>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+    <script>
+        function submit() {
+            
+            let body = {};
+            body.id = parseInt($("#id").html());
+            body.firstName = document.getElementById("fn").value;
+            body.lastName = document.getElementById("ln").value;
+            body.type = document.getElementById("type").value;
+            body.size = document.getElementById("size").value;
+            body.color = document.getElementById("color").value;
+            console.log(body);
+            fetch("/api/editTshirt", {
+                method: "POST",
+                body: JSON.stringify(body),
+                headers: {
+                    "Content-Type" :"application/json"
+                }
+            }).then(res => res.json())
+                .then(obj => {})
+            
+            window.location.href = "/T-shirts-table";
+        }
+    </script>
+</body>
+</html>

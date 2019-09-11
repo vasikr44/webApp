@@ -1,0 +1,5 @@
+create database tshirts;
+use tshirts;
+create table tshirts(id serial,firstName varchar(50), lastName varchar(50), type enum('female, male'),size enum('XS', 'S', 'M', 'L', 'XL','XXL', '3XL','4XL','5XL'), color varchar(40));
+
+///don't forget to start the server with node app.js !

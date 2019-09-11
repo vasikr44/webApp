@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/T-shirts-table.css">
+</head>
+<body>
+        <section>
+            <!--for demo wrap-->
+            <h1>T-shirts</h1>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0" id="tbl">
+                    <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Type</th>
+                    <th>Size</th>
+                    <th>Colour</th>
+                    <th><button class="button" style="padding-left:10px; padding-right:10px;"><a href="T-shirts-submit">Add</button></th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+        <script>
+            function deleteRow() {
+                var id;
+                id = $(this).attr("id");
+                // console.log(id);
+                // fetch("http://localhost:3000/api/deleteTshirt", {
+                //     method: "POST",
+                //     body: JSON.stringify(id),
+                //     headers: {
+                //         "Content-Type" :"application/json"
+                //     }
+                // }).then(res => res.json())
+                //     .then(obj => {})
+                // window.location.href = "T-shirts-table.html";
+            };
+        </script>
+        <script src="/js/T-shirts-table.js"></script>
+</body>
+</html>
